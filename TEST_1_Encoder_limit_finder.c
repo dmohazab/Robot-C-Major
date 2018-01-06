@@ -1,7 +1,4 @@
-/* Encoder Finder: This code allows us to find the encoder values
-corresponding to each chord. This test was run multiple times per
-fret in order to give us a range of encoder values for which the
-chord is still correct*/
+/* Encoder Finder: used to find encoder vales */
 task main()
 {
 	nMotorEncoder[motorA] = nMotorEncoder[motorB] = 0;
