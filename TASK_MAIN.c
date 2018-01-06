@@ -27,7 +27,6 @@ void displaySong(bool isPixel);
 void pause(bool timerNeeded);
 task stopAll();
 
-// Main Written By: Alexander Alexiou
 task main()
 {
 	SensorType[S1] = sensorI2CCustom9V;
@@ -149,8 +148,6 @@ task main()
 
 }
 
-// Function 1 - chordNum
-// Written By: Maria Zhang
 int chordNum(char chordLetter)
 {
 	switch (chordLetter)
@@ -183,8 +180,6 @@ int chordNum(char chordLetter)
 	return 0;
 }
 
-// Function 2 - getTimeValue
-// Writen By: Daniel Mohazab
 int getTimeValue(char timeSymbol)
 {
 	switch(timeSymbol)
@@ -209,8 +204,6 @@ int getTimeValue(char timeSymbol)
 	return 0;
 }
 
-// Function 3 - readFile
-// Written By: Alexander Alexiou
 int readFile(TFileHandle & fin, int* chordsPositionX, int* chordsPositionY, 
 int* timings)
 {
@@ -228,8 +221,6 @@ int* timings)
 	return count;
 }
 
-// Function 4 - setGantryPos
-// Written By: Connor Sweet
 void setGantryPos(int chordPositionX, int chordPositionY, int lastPositionX)
 {
 	int distanceX = chordPositionX - lastPositionX;
@@ -254,8 +245,6 @@ void setGantryPos(int chordPositionX, int chordPositionY, int lastPositionX)
 	setServoPosition(S1, 2, -chordPositionY); //LEFT
 }
 
-// Function 5 - commitOrRelease
-// Written By: Connor Sweet
 void commitOrRelease()
 {
 
@@ -279,8 +268,6 @@ void commitOrRelease()
 	motor[motorC] =  0;
 }
 
-// Function 6 - strum
-// Written By: Daniel Mohazab
 void strum(bool & isLeft)
 {
 	if(getButtonPress(buttonEnter))
@@ -298,8 +285,6 @@ void strum(bool & isLeft)
 	}
 }
 
-// Function 7 - terminate
-// Written By: Alexander Alexiou
 void terminate()
 {
 	motor[motorC] = COMMIT_POWER;
@@ -316,8 +301,6 @@ void terminate()
 	stopAllTasks();
 }
 
-// Function 8 - displaySong
-// Written By: Alexander Alexiou
 void displaySong(bool isPixel)
 {
 	if(isPixel)
@@ -336,8 +319,6 @@ void displaySong(bool isPixel)
 	drawBmpfile(0, 75, "Fire");
 }
 
-// Function 9 - pause
-// Written By: Alexander Alexiou
 void pause(bool timerNeeded)
 {
 	while(getButtonPress(buttonEnter))
@@ -373,8 +354,6 @@ void pause(bool timerNeeded)
 	displaySong(isPixel);
 }
 
-// stopAll Task
-// Written By: Alexander Alexiou
 task stopAll()
 {
 	while(SensorValue[S2] == 0)
